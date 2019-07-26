@@ -1,7 +1,6 @@
 <?php
 
-//require '../vendor/autoload.php';
-require '../src/EmailService.php';
+require '../vendor/autoload.php';
 
 use img\mail\EmailService;
 
