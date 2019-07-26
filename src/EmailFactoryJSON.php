@@ -19,11 +19,11 @@ class EmailFactoryJSON extends BaseEmailFactory
     {
         $result = [];
         $mail = new MailValidator($this->email);
-        $result = $mail->validate();
+        $result['root'] = $mail->validate();
         $mxs = $mail->getMxServers();
-        if(isset($mxs) && !empty($mxs) && is_array($mxs) && $result[MailValidator::RESPONSE_CODE_KEY] == MailValidator::RESPONSE_CODE_TRUE) {
+        if(isset($mxs) && !empty($mxs) && is_array($mxs) && $result['root'][MailValidator::RESPONSE_CODE_KEY] == MailValidator::RESPONSE_CODE_TRUE) {
             foreach ($mxs as $mx) {
-                $result[MailValidator::RESPONSE_MX_SERVERS_SECTION][] = $mx;
+                $result['root'][MailValidator::RESPONSE_MX_SERVERS_SECTION][] = $mx;
             }
         }
 

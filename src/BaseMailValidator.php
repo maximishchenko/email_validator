@@ -109,9 +109,9 @@ abstract class BaseMailValidator
      */
     public function __construct ($email)
     {
-//        if(!isset($email) || empty($email)) {
-//            $this->setResponseCode(static::RESPONSE_CODE_FALSE, Messages::get('MissingEmailAddress'));
-//        }
+        if(!isset($email) || empty($email)) {
+            $this->setResponseCode(static::RESPONSE_CODE_FALSE, Messages::get('MissingEmailAddress'));
+        }
         $this->_email = $email;
         $this->getMXArray();
     }
